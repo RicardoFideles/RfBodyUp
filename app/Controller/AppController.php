@@ -52,16 +52,24 @@ class AppController extends Controller {
 		 
         $this->Auth->authError = 'Área restrita';
         $this->Auth->authorize = array('Controller');       
-        $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'display', 'home');
+        $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'display', 'home', 'admin' => false);
 
         $this->Auth->flash = array_merge($this->Auth->flash, array(
             'element' => 'alerts/inline',
             'params' => array('class' => 'error')
         ));
 		
-        $this->Auth->authenticate = array('Form' => array(
-            'fields' => array('username' => 'username')
-        ));
+		
+		 if ($this->isPrefix('admin')) {
+            $this->layout = 'admin';
+        	
+        	$this->Auth->authenticate = array('Form' => array(
+            	'fields' => array('username' => 'username')
+        	));
+			
+		 } else {
+		 	 $this->Auth->allow();
+		 }
 
         return parent::beforeFilter();
     }
@@ -79,5 +87,17 @@ class AppController extends Controller {
 		}
 		
         return false;
+    }
+	
+	/**
+     * Verifica se está dentro de um prefixo
+     *
+     * @param string $prefix
+     *
+     * @return boolean
+     */
+    protected function isPrefix($prefix) {
+        return isset($this->request->params['prefix']) &&
+               $this->request->params['prefix'] === $prefix;
     }
 }

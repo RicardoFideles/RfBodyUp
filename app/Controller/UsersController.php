@@ -15,7 +15,7 @@ class UsersController extends AppController {
     }
 	
 	
-	 public function login() {
+	 public function admin_login() {
         $this->layout = 'login';
 
         if ($this->request->is('post')) {
@@ -39,15 +39,18 @@ class UsersController extends AppController {
 	/**
      * Dashboard do painel de controle
      */
-    public function dashboard() {
-    	$this->redirect(array('controller'=> 'pages', 'action' => 'display', 'home'));
+    public function admin_dashboard() {
+		
+    	$this->set(array(
+            'title_for_layout' => 'Painel de Controle'
+        ));
 	}
 	
     
     /**
      * Logout de usuários (admin)
      */
-    public function logout() {
+    public function admin_logout() {
         $this->Session->delete($this->Auth->sessionKey);
 
         $this->redirect($this->Auth->logout());
@@ -77,7 +80,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -90,7 +93,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -109,7 +112,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -133,7 +136,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
@@ -147,7 +150,7 @@ class UsersController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 
-	public function cakelog($filename = null) {
+	public function admin_cakelog($filename = null) {
 		$fullpath= LOGS;
 		$logFiles = glob($fullpath."*.log");
 		$this->set(compact('logFiles', 'filename'));
