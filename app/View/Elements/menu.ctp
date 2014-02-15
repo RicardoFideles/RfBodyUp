@@ -24,6 +24,7 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><?php echo $this->Html->link('Logs', array('controller' => 'users', 'action' => 'cakelog')) ?></li>
+						<li><?php echo $this->Html->link('Configurações', array('controller' => 'settings', 'action' => 'index')) ?></li>
 					</ul>
 				</li>
 				

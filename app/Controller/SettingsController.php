@@ -20,7 +20,7 @@ class SettingsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Setting->recursive = 0;
 		$this->set('settings', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class SettingsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Setting->exists($id)) {
 			throw new NotFoundException(__('Invalid setting'));
 		}
@@ -45,7 +45,7 @@ class SettingsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Setting->create();
 			if ($this->Setting->save($this->request->data)) {
@@ -64,7 +64,7 @@ class SettingsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Setting->exists($id)) {
 			throw new NotFoundException(__('Invalid setting'));
 		}
@@ -88,7 +88,7 @@ class SettingsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Setting->id = $id;
 		if (!$this->Setting->exists()) {
 			throw new NotFoundException(__('Invalid setting'));

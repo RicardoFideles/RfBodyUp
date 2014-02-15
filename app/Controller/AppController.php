@@ -41,6 +41,9 @@ class AppController extends Controller {
      */
     public $helpers = array('Html', 'Form', 'Session', 'Time', 'Text', 'Number','Cache');
 	
+	
+	var $uses = array('Setting');
+	
     
     /**
      * Antes de filtrar as actions da aplicação
@@ -57,6 +60,13 @@ class AppController extends Controller {
 		
 		if ($this->Session->check('Config.language')) {
             Configure::write('Config.language', $this->Session->read('Config.language'));
+        }
+		
+		$settings = $this->Setting->find('first');
+		Configure::write('Config.settings', $settings);
+		
+		if ($this->Session->check('Config.settings')) {
+            Configure::write('Config.settings', $this->Session->read('Config.settings'));
         }
 		
 		

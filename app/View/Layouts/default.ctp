@@ -26,6 +26,7 @@
 
 <body>
 	<?php echo $this->element('header/index'); ?>
+	
   		<div id="wrap">
   			<div class="container">
   				
@@ -39,11 +40,7 @@
   		</div>
   		
   		
-		<div id="footer">
-			<div class="container">
-				<p class="text-muted">Place sticky footer content here.</p>
-			</div>
-		</div>
+		<?php echo $this->element('footer/'. Configure::read('lang') .'/index'); ?>
 		
     <!-- Include all compiled plugins (below), or include individual files as needed -->
   </body>
