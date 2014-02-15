@@ -4,12 +4,24 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('link_facebook'); ?></th>
+			<th><?php echo $this->Paginator->sort('link_twitter'); ?></th>
+			<th><?php echo $this->Paginator->sort('link_instagram'); ?></th>
+			<th><?php echo $this->Paginator->sort('link_pinterest'); ?></th>
+			<th><?php echo $this->Paginator->sort('link_googleplus'); ?></th>
+			<th><?php echo $this->Paginator->sort('email'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($settings as $setting): ?>
 	<tr>
 		<td><?php echo h($setting['Setting']['id']); ?>&nbsp;</td>
 		<td><?php echo h($setting['Setting']['name']); ?>&nbsp;</td>
+		<td><?php echo h($setting['Setting']['link_facebook']); ?>&nbsp;</td>
+		<td><?php echo h($setting['Setting']['link_twitter']); ?>&nbsp;</td>
+		<td><?php echo h($setting['Setting']['link_instagram']); ?>&nbsp;</td>
+		<td><?php echo h($setting['Setting']['link_pinterest']); ?>&nbsp;</td>
+		<td><?php echo h($setting['Setting']['link_googleplus']); ?>&nbsp;</td>
+		<td><?php echo h($setting['Setting']['email']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $setting['Setting']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $setting['Setting']['id'])); ?>

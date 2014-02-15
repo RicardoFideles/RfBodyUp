@@ -11,6 +11,36 @@
 			<?php echo h($setting['Setting']['name']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Link Facebook'); ?></dt>
+		<dd>
+			<?php echo h($setting['Setting']['link_facebook']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Link Twitter'); ?></dt>
+		<dd>
+			<?php echo h($setting['Setting']['link_twitter']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Link Instagram'); ?></dt>
+		<dd>
+			<?php echo h($setting['Setting']['link_instagram']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Link Pinterest'); ?></dt>
+		<dd>
+			<?php echo h($setting['Setting']['link_pinterest']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Link Googleplus'); ?></dt>
+		<dd>
+			<?php echo h($setting['Setting']['link_googleplus']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __('Email'); ?></dt>
+		<dd>
+			<?php echo h($setting['Setting']['email']); ?>
+			&nbsp;
+		</dd>
 	</dl>
 </div>
 <div class="actions">

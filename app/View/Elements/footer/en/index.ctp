@@ -1,5 +1,6 @@
 <?php 
 	$settings =  Configure::read('Config.settings');
+	$categorias = $this->requestAction(array('controller' => 'categories', 'action' => 'lista'));
 ?>
 
 <!--RODAPE-->
@@ -18,9 +19,13 @@
 			<a href="<?php echo $this->Html->url('/lojas'); ?>" class="LkRodape">LOJAS</a><br />
 			<br />
 			<p class="RodapeTitulo">Loja Online</p>
-			<a href="#" class="LkRodape">BALLET</a><br />
-			<a href="#" class="LkRodape">BEACH</a><br />
-			<a href="#" class="LkRodape">FITNESS</a>
+			<?php foreach($categorias as $key => $categoria): ?>
+				<?php 
+					$slug = $categoria['Category']['slug'];
+					$link = array('controller' => 'categories', 'action' => 'view', 'slug'=> $slug); 
+				?>
+				<a href="#" class="LkRodape"><?php echo $categoria['Category']['name_en']; ?></a><br />
+			<?php endforeach; ?>
 		</div>
   
 		<div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 marginBotA fonteDosis500">
@@ -70,5 +75,7 @@
 	</div>
 </div>
 
+
 <?php echo $this->element('footer/rodape_dev'); ?>
+
 <!--RODAPE-->
