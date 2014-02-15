@@ -49,7 +49,18 @@ class AppController extends Controller {
      */
     public function beforeFilter() {
     	
-		 
+		Configure::write('lang', 'pt');
+		
+		if ($this->Session->check('lang')) {
+            Configure::write('lang', $this->Session->read('lang'));
+        }
+		
+		if ($this->Session->check('Config.language')) {
+            Configure::write('Config.language', $this->Session->read('Config.language'));
+        }
+		
+		
+		
         $this->Auth->authError = 'Área restrita';
         $this->Auth->authorize = array('Controller');       
         $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'display', 'home', 'admin' => false);
@@ -68,6 +79,7 @@ class AppController extends Controller {
         	));
 			
 		 } else {
+		 	
 		 	 $this->Auth->allow();
 		 }
 

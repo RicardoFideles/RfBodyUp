@@ -1,0 +1,251 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@import url(http://fonts.googleapis.com/css?family=Dosis:200,400,500,600,700);
+
+.fonteDosis200 {font-family: 'Dosis', Arial, sans-serif; font-weight:200;} /* Extra-Light */
+.fonteDosis400 {font-family: 'Dosis', Arial, sans-serif; font-weight:400;} /* Normal */
+.fonteDosis500 {font-family: 'Dosis', Arial, sans-serif; font-weight:500;} /* Medium */
+.fonteDosis600 {font-family: 'Dosis', Arial, sans-serif; font-weight:600;} /* Semi-Bold */
+.fonteDosis700 {font-family: 'Dosis', Arial, sans-serif; font-weight:700;} /* Bold */
+
+
+/* LINKS VARIADOS */
+a { color: #efab55; font-weight:normal;}
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration:underline; color:#333333; }
+a:active {text-decoration: none;}
+
+
+/*LK = LINK*/
+
+/* IDIOMA */
+a.LkIdioma { font-size:9pt; color: #efab55; }
+a.LkIdioma:link {text-decoration: none;}
+a.LkIdioma:visited {text-decoration: none;}
+a.LkIdioma:hover {text-decoration:underline; color:#efab55; }
+a.LkIdioma:active {text-decoration: none;}
+
+
+/* MENU */
+a.LkMenuSuperior { font-size:10pt; color: #FFFFFF; margin-left:10px; margin-right:10px; }
+a.LkMenuSuperior:link {text-decoration: none;}
+a.LkMenuSuperior:visited {text-decoration: none;}
+a.LkMenuSuperior:hover {text-decoration:none; color:#efab55; }
+a.LkMenuSuperior:active {text-decoration: none;}
+
+a.LkHomeDestaques { color: #FFFFFF;}
+a.LkHomeDestaques:link {text-decoration: none;}
+a.LkHomeDestaques:visited {text-decoration: none;}
+a.LkHomeDestaques:hover {text-decoration:none; color:#efab55; }
+a.LkHomeDestaques:active {text-decoration: none;}
+
+
+/* PRODUTOS_HOME_LKs */
+a.LkProdutosHomeTit { font-size:12pt; color: #333333; }
+a.LkProdutosHomeTit:link {text-decoration: none;}
+a.LkProdutosHomeTit:visited {text-decoration: none;}
+a.LkProdutosHomeTit:hover {text-decoration:underline; color:#efab55; }
+a.LkProdutosHomeTit:active {text-decoration: none;}
+
+a.LkProdutosHomeListDesej { font-size:10pt; color: #848484; line-height:10pt; }
+a.LkProdutosHomeListDesej:link {text-decoration: none;}
+a.LkProdutosHomeListDesej:visited {text-decoration: none;}
+a.LkProdutosHomeListDesej:hover {text-decoration:underline; color:#848484; }
+a.LkProdutosHomeListDesej:active {text-decoration: none;}
+
+a.LkProdutosHomeCarrinho { font-size:10pt; color: #efab55; line-height:10pt; }
+a.LkProdutosHomeCarrinho:link {text-decoration: none;}
+a.LkProdutosHomeCarrinho:visited {text-decoration: none;}
+a.LkProdutosHomeCarrinho:hover {text-decoration:underline; color:#efab55; }
+a.LkProdutosHomeCarrinho:active {text-decoration: none;}
+
+
+
+/*ESQUECI_SENHA*/
+a.LkEsqueciSenha { font-size:9pt; color: #333333; font-style:italic; }
+a.LkEsqueciSenha:link {text-decoration: none;}
+a.LkEsqueciSenha:visited {text-decoration: none;}
+a.LkEsqueciSenha:hover {text-decoration:underline; color:#efab55; }
+a.LkEsqueciSenha:active {text-decoration: none;}
+
+
+
+/*DUVIDAS_FREQUENTES*/
+a.LkDuvidasFreqMenu { font-size:10pt; color: #333333; }
+a.LkDuvidasFreqMenu:link {text-decoration: none;}
+a.LkDuvidasFreqMenu:visited {text-decoration: none;}
+a.LkDuvidasFreqMenu:hover {text-decoration:none; color:#efab55; }
+a.LkDuvidasFreqMenu:active {text-decoration: none;}
+
+
+a.LkDuvidasFreq { font-size:12pt; color: #333333; }
+a.LkDuvidasFreq:link {text-decoration: none;}
+a.LkDuvidasFreq:visited {text-decoration: none;}
+a.LkDuvidasFreq:hover {text-decoration:none; color:#efab55; }
+a.LkDuvidasFreq:active {text-decoration: none;}
+
+
+a.LkDuvidasFreqTopo { font-size:8pt; color: #333333; text-align:right; }
+a.LkDuvidasFreqTopo:link {text-decoration: none;}
+a.LkDuvidasFreqTopo:visited {text-decoration: none;}
+a.LkDuvidasFreqTopo:hover {text-decoration:none; color:#efab55; }
+a.LkDuvidasFreqTopo:active {text-decoration: none;}
+
+
+/*PRODUTOS*/
+a.LkProdutosOrdenar { font-size:11pt; color: #333333; }
+a.LkProdutosOrdenar:link {text-decoration: none;}
+a.LkProdutosOrdenar:visited {text-decoration: none;}
+a.LkProdutosOrdenar:hover {text-decoration:none; color:#efab55; }
+a.LkProdutosOrdenar:active {text-decoration: none;}
+
+a.LkProdutosPaginacao { font-size:10pt; color: #333333; padding-left:2px; padding-right:2px; }
+a.LkProdutosPaginacao:link {text-decoration: none;}
+a.LkProdutosPaginacao:visited {text-decoration: none;}
+a.LkProdutosPaginacao:hover {text-decoration:none; color:#FFF; background-color:#efab55; }
+a.LkProdutosPaginacao:active {text-decoration: none;}
+
+
+
+/*PRODUTOS_SHOP_CART*/
+a.LkProdShopCartAtualizar { font-size:8pt; color: #333333; }
+a.LkProdShopCartAtualizar:link {text-decoration: none;}
+a.LkProdShopCartAtualizar:visited {text-decoration: none;}
+a.LkProdShopCartAtualizar:hover {text-decoration:none; color:#efab55; }
+a.LkProdShopCartAtualizar:active {text-decoration: none;}
+
+
+/*ADICIONAR_LISTA_DE_DESEJPS*/
+a.LkProdAddCarroCompDaListDes { font-size:8pt; color: #333333; }
+a.LkProdAddCarroCompDaListDes:link {text-decoration: none;}
+a.LkProdAddCarroCompDaListDes:visited {text-decoration: none;}
+a.LkProdAddCarroCompDaListDes:hover {text-decoration:none; color:#efab55; }
+a.LkProdAddCarroCompDaListDes:active {text-decoration: none;}
+
+
+
+/*RODAPE - LINKS*/
+a.LkRodape { font-size:9pt; color: #808080; }
+a.LkRodape:link {text-decoration: none;}
+a.LkRodape:visited {text-decoration: none;}
+a.LkRodape:hover {text-decoration:none; color:#efab55; }
+a.LkRodape:active {text-decoration: none;}
+
+
+
+
+
+
+.rowFixHorizScroll {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+
+/*GERAIS*/
+.bkgA { background-color:#333333;} /*CINZA ESCURO*/
+.bkgB { background-color:#474747;} /*CINZA UM POUCO MENOS ESCURO*/
+.bkgC { background-color:#efab55;} /*DOURADO*/
+.bkgD { background-color:#FFFFFF;} /*BRANCO*/
+.bkgE { background-color:#000000;} /*PRETO*/
+.bkgF { background-color:#f3f3f3; } /*CINZA CLARO*/
+
+.textColorA { color:#333333;} /*CINZA ESCURO*/
+.textColorB { color:#ededed;} /*CINZA CLARO*/
+.textColorC { color:#efab55;} /*DOURADO*/
+
+
+/*MARGENS*/
+.marginTopA {padding-top:10px;}
+.marginBotA {padding-bottom:10px;}
+.marginTopA2 {padding-top:15px;}
+.marginBotA2 {padding-bottom:15px;}
+.marginTopB {padding-top:20px;}
+.marginBotB {padding-bottom:20px;}
+.marginTopC {padding-top:30px;}
+.marginBotC {padding-bottom:30px;}
+.marginTopD {padding-top:40px;}
+.marginBotD {padding-bottom:40px;}
+.marginTopE {padding-top:50px;}
+.marginBotE {padding-bottom:50px;}
+.marginTopF {padding-top:60px;}
+.marginBotF {padding-bottom:60px;}
+.marginTopG {padding-top:70px;}
+.marginBotG {padding-bottom:70px;}
+.marginTopH {padding-top:80px;}
+.marginBotH {padding-bottom:80px;}
+
+
+body { font-size:10pt; }
+
+
+
+.facebookResponsive { overflow: hidden; height:210px; border: 0px solid red; }
+
+
+.faixaDestaquesHomeContainer { width:170px;}
+
+
+/*PRODUTOS_HOME*/
+.ProdutosHome { width:170px; }
+
+.ProdImgBorder {border:1px solid #CCC; width:170px;}
+
+
+/*PRODUTOS_RELACIONADOS*/
+.ProdutosRelac { width:170px; }
+
+.ProdutosHomeImg { width:100px; height:auto;}
+.ProdutosRelacImg {width:100px; height:auto;}
+
+
+/*PRODUTOS_SHOP_CART*/
+.ProShopCart {width:900px;}
+.ProShopCart .ColunasTit { width:150px;}
+/*.ProShopCart .Titulo { width:200px;}
+.ProShopCart .Detalhes { width:50px;}
+.ProShopCart .Qtde { width:50px;}
+.ProShopCart .AdCarroCompas { width:50px;}
+.ProShopCart .ValorUnit { width:50px;}
+.ProShopCart .ValorSoma { width:50px;}
+.ProShopCart .Remover { width:50px;}*/
+
+/*SUBTOTAL*/
+/*.ProShopCart .ValorSubtotal { width:50px;}
+.ProShopCart .TxtCalculos { width:50px;}*/
+
+/*TOTAL_FINAL*/
+/*.ProShopCart .ValorFinal { width:50px;}*/
+
+/*.ProShopCart .ColunasTit { width:50px;}
+.ProShopCart .Pedidos { width:50px;}
+.ProShopCart .DataCompra { width:50px;}
+.ProShopCart .EntregaPrevista { width:50px;}
+.ProShopCart .ValorSomaPedidos { width:50px;}
+.ProShopCart .StatusCompra { width:50px;}*/
+
+.PedidosPrint 										{width:150px; }
+.PedidosPrint > div 								{width:150px; }
+.PedidosPrint > .Titulo 							{width:150px; }
+.PedidosPrint > .Pedidos 						{width:100px; }
+.PedidosPrint > .ColunasTit 					{width:100px;}
+.PedidosPrint > .DataCompra 				{width:100px;}
+.PedidosPrint > .EntregaPrevista 		{width:100px;}
+.PedidosPrint > .ValorSomaPedidos 	{width:100px;}
+.PedidosPrint > .StatusCompra 			{width:100px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
