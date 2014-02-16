@@ -16,16 +16,38 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<h2><?php echo $name; ?></h2>
-<p class="error">
-	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
-	<?php printf(
-		__d('cake', 'The requested address %s was not found on this server.'),
-		"<strong>'{$url}'</strong>"
-	); ?>
-</p>
-<?php
-if (Configure::read('debug') > 0):
-	echo $this->element('exception_stack_trace');
-endif;
-?>
+
+<!--LOGO_PRINT-->
+<div class="row bkgB rowFixHorizScroll">
+	<div class="container">
+		<div class="col-xs-12 text-left visible-print">
+			<img src="<?php echo $this->Html->url('/imagens/LogoBodyUpTopo2.png'); ?> " class="LogoMobile" />
+			<br />http://www.bodyup.com.br\
+		</div>
+	</div>
+</div>
+<!--LOGO_PRINT-->
+      
+<div class="row rowFixHorizScroll marginTopD marginBotF bkgD">
+      <div class="container">
+            <div class="col-xs-12">
+            <p class="InternaTitulo fonteDosis400">ERRO 404</p>
+            <br />
+            <p class="InternaSubTitulo fonteDosis400">Ops! Algo parece ter dado errado.</p>
+            <br />
+            <?php printf(
+				__d('cake', 'A página %s não foi encontrada.'),
+				"<strong>'{$url}'</strong>"
+			); ?>
+			 <br /><br />
+            Sentimos muito que tenha ocorrido. Tente novamente por favor ou entre em contato nossa Central de Atendimento.
+            <br /><br /><br /><br /><br /><br /><br />
+            <?php
+				if (Configure::read('debug') > 0):
+					echo $this->element('exception_stack_trace');
+				endif;
+			?>
+            
+            </div>
+      </div>
+</div>

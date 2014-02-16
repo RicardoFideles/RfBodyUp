@@ -9,9 +9,9 @@
 			<?php foreach($categorias as $key => $categoria): ?>
 				<?php 
 					$slug = $categoria['Category']['slug'];
-					$link = array('controller' => 'categories', 'action' => 'view', 'slug'=> $slug); 
+					$link = array('controller' => 'products', 'action' => 'lista', 'slug'=> $slug); 
 				?>
-				<a href="#" class="LkMenuSuperior fonteDosis200"><?php echo $categoria['Category']['name_en']; ?></a>
+				<a href="<?php echo $this->Html->url($link); ?>" class="LkMenuSuperior fonteDosis200"><?php echo $categoria['Category']['name_en']; ?></a>
 			<?php endforeach; ?>
 		</div>
 		<div class="col-lg-4 col-lg-offset-2 col-md-5 col-sm-6 col-xs-12 text-right">

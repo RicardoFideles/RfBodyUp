@@ -1,5 +1,6 @@
 <?php 
 	$settings =  Configure::read('Config.settings');
+	$categorias = $this->requestAction(array('controller' => 'categories', 'action' => 'lista'));
 ?>
 
 <!--RODAPE-->
@@ -14,13 +15,17 @@
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 marginBotA fonteDosis500">
 			<p class="RodapeTitulo">Institucional</p>
 			<a href="<?php echo $this->Html->url('/sobre'); ?>" class="LkRodape">SOBRE</a><br />
-			<a href="<?php echo $this->Html->url('/produtos'); ?>" class="LkRodape">O PRODUTOS</a><br />
+			<a href="<?php echo $this->Html->url('/produtos'); ?>" class="LkRodape">OS PRODUTOS</a><br />
 			<a href="<?php echo $this->Html->url('/lojas'); ?>" class="LkRodape">LOJAS</a><br />
 			<br />
 			<p class="RodapeTitulo">Loja Online</p>
-			<a href="#" class="LkRodape">BALLET</a><br />
-			<a href="#" class="LkRodape">BEACH</a><br />
-			<a href="#" class="LkRodape">FITNESS</a>
+			<?php foreach($categorias as $key => $categoria): ?>
+				<?php 
+					$slug = $categoria['Category']['slug'];
+					$link = array('controller' => 'categories', 'action' => 'view', 'slug'=> $slug); 
+				?>
+				<a href="#" class="LkRodape"><?php echo $categoria['Category']['name_en']; ?></a><br />
+			<?php endforeach; ?>
 		</div>
   
 		<div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 marginBotA fonteDosis500">

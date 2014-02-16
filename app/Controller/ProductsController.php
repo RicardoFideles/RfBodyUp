@@ -104,4 +104,9 @@ class ProductsController extends AppController {
 			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	
+	public function lista ($id = null) {
+		
+	}
+}

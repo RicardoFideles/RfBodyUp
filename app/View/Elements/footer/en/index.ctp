@@ -14,9 +14,9 @@
                   
 		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 marginBotA fonteDosis500">
 			<p class="RodapeTitulo">Institucional</p>
-			<a href="<?php echo $this->Html->url('/sobre'); ?>" class="LkRodape">SOBRE</a><br />
-			<a href="<?php echo $this->Html->url('/produtos'); ?>" class="LkRodape">O PRODUTOS</a><br />
-			<a href="<?php echo $this->Html->url('/lojas'); ?>" class="LkRodape">LOJAS</a><br />
+			<a href="<?php echo $this->Html->url('/about'); ?>" class="LkRodape">ABOUT</a><br />
+			<a href="<?php echo $this->Html->url('/products'); ?>" class="LkRodape">PRODUCTS</a><br />
+			<a href="<?php echo $this->Html->url('/stores'); ?>" class="LkRodape">STORES</a><br />
 			<br />
 			<p class="RodapeTitulo">Loja Online</p>
 			<?php foreach($categorias as $key => $categoria): ?>
@@ -30,9 +30,9 @@
   
 		<div class="col-lg-2 col-md-3 col-sm-3 col-xs-6 marginBotA fonteDosis500">
 			<p class="RodapeTitulo">Central de Atendimento</p>
-			<a href="<?php echo $this->Html->url('/duvidas-frequentes'); ?>" class="LkRodape">DÚVIDAS FREQUENTES</a><br />
-			<a href="<?php echo $this->Html->url('/termos-e-condicoes-uso'); ?>" class="LkRodape">TERMOS E CONDIÇÕES DE USO</a><br />
-			<a href="<?php echo $this->Html->url('/politica-de-privacidade'); ?>" class="LkRodape">POLÍTICA DE PRIVACIDADE</a><br />
+			<a href="<?php echo $this->Html->url('/customer-service'); ?>" class="LkRodape">CUSTOMER SERVICE</a><br />
+			<a href="<?php echo $this->Html->url('/conditions-of-use'); ?>" class="LkRodape">CONDITIONS OF USE</a><br />
+			<a href="<?php echo $this->Html->url('/privacy-policy'); ?>" class="LkRodape">PRIVACY POLICY</a><br />
 		</div>
   
   		<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 marginBotA">

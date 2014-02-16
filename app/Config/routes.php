@@ -25,14 +25,46 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	
+	
+	Router::connect('/sobre', array('controller' => 'pages', 'action' => 'display', 'sobre'));
+	Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
+	
+	Router::connect('/contato', array('controller' => 'pages', 'action' => 'display', 'contato'));
+	Router::connect('/contact', array('controller' => 'pages', 'action' => 'display', 'contact'));
+	
+	Router::connect('/lojas', array('controller' => 'pages', 'action' => 'display', 'lojas'));
+	Router::connect('/stores', array('controller' => 'pages', 'action' => 'display', 'stores'));
+	
+	Router::connect('/produtos', array('controller' => 'pages', 'action' => 'display', 'produtos'));
+	Router::connect('/products', array('controller' => 'pages', 'action' => 'display', 'products'));
+	
+	Router::connect('/politica-de-privacidade', array('controller' => 'pages', 'action' => 'display', 'politica-de-privacidade'));
+	Router::connect('/privacy-policy', array('controller' => 'pages', 'action' => 'display', 'privacy-policy'));
+	
+	Router::connect('/duvidas-frequentes', array('controller' => 'pages', 'action' => 'display', 'duvidas-frequentes'));
+	Router::connect('/customer-service', array('controller' => 'pages', 'action' => 'display', 'customer-service'));
+	
+	Router::connect('/termos-e-condicoes-uso', array('controller' => 'pages', 'action' => 'display', 'termos-e-condicoes-uso'));
+	Router::connect('/conditions-of-use', array('controller' => 'pages', 'action' => 'display', 'conditions-of-use'));
+	
+	
 	Router::connect('/busca', array('controller' => 'pages', 'action' => 'display', 'busca'));
 	
+	
+	
+	Router::connect('/categoria/:slug', array(
+        'controller' => 'products',
+        'action' => 'lista'), array(
+            'pass' => array('slug'),        
+            'slug' => '[a-z\-\.]+'
+            
+    ));
 	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
     Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
     Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true));
-	
 	
 	
 /**
