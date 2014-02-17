@@ -17,17 +17,6 @@
  */
 ?>
 
-<!--LOGO_PRINT-->
-<div class="row bkgB rowFixHorizScroll">
-	<div class="container">
-		<div class="col-xs-12 text-left visible-print">
-			<img src="<?php echo $this->Html->url('/imagens/LogoBodyUpTopo2.png'); ?> " class="LogoMobile" />
-			<br />http://www.bodyup.com.br\
-		</div>
-	</div>
-</div>
-<!--LOGO_PRINT-->
-      
 <div class="row rowFixHorizScroll marginTopD marginBotF bkgD">
       <div class="container">
             <div class="col-xs-12">

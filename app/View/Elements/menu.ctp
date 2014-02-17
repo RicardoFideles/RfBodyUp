@@ -19,7 +19,25 @@
                         			?>">Administradores
         			</a>
     			</li>
-    			
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Site <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Páginas', array('controller' => 'paginas', 'action' => 'index')) ?></li>
+						<li><?php echo $this->Html->link('Categorias', array('controller' => 'categories', 'action' => 'index')) ?></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Loja <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Produtos', array('controller' => 'products', 'action' => 'index')) ?></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Financeiro <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><?php echo $this->Html->link('Compras', array('controller' => 'transactions', 'action' => 'index')) ?></li>
+					</ul>
+				</li>      			
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -27,7 +45,6 @@
 						<li><?php echo $this->Html->link('Configurações', array('controller' => 'settings', 'action' => 'index')) ?></li>
 					</ul>
 				</li>
-				
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">

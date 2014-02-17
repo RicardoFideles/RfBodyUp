@@ -14,10 +14,19 @@
 				<a href="#" class="LkMenuSuperior fonteDosis200"><?php echo $categoria['Category']['name_en']; ?></a>
 			<?php endforeach; ?>
 		</div>
-		<div class="col-lg-4 col-lg-offset-2 col-md-5 col-sm-6 col-xs-12 text-right">
-			<a href="#" class="LkMenuSuperior fonteDosis200">LISTA DE DESEJOS (<span class="fonteDosis500"> 20 </span>)</a>
-			<a href="#" class="LkMenuSuperior fonteDosis200">CARRINHOS DE COMPRAS (<span class="fonteDosis500"> 16 </span>)</a>
-		</div>
+		<?php echo $this->element('/header/shopcart/pt/index');?>
 	</div>
 </div>
 <!--MENU-->
+
+<!--LOGO_PRINT-->
+<div class="row bkgB rowFixHorizScroll">
+	<div class="container">
+		<div class="col-xs-12 text-left visible-print">
+			<img src="<?php echo $this->Html->url('/imagens/LogoBodyUpTopo2.png'); ?> " class="LogoMobile" />
+			<br />
+			<?php echo $this->Html->url('/'); ?>
+		</div>
+	</div>
+</div>
+<!--LOGO_PRINT-->

@@ -101,4 +101,8 @@ class PaginasController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+	
+	public function getPagina ($id = null) {
+		return $this->Pagina->find('first', array('conditions'=> array('Pagina.slug' => $id)));
+	} 
 }
