@@ -9,6 +9,7 @@
 			echo $this->Html->url($link); ?>" class="btn btn_book">Voltar</a>
 		</button>
 		<?php echo $this->Form->create('Category', array('class' => 'form-horizontal', 'role' => 'form', 'inputDefaults' => array('label' => false, 'div' => false))); ?>
+			<?php echo $this->Form->input('id'); ?>
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Nome</label>
 				<div class="col-sm-10">

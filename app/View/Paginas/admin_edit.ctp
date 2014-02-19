@@ -12,10 +12,14 @@
 		</button>
 		<?php echo $this->Form->create('Pagina', array('class' => 'form-horizontal', 'role' => 'form', 'inputDefaults' => array('label' => false, 'div' => false))); ?>
 			<?php echo $this->Form->input('id'); ?>
+			<?php 
+				$name = $this->request->data['Pagina']['name'];
+				echo $this->Form->input('name', array('type' => 'hidden','value' =>$name)); 
+			?>
 			<div class="form-group">
 				<label for="inputEmail3" class="col-sm-2 control-label">Nome</label>
 				<div class="col-sm-10">
-					<?php echo $this->Form->input('name', array('class' => 'form-control', 'id' => 'inputName3', 'placeholder' => 'Nome')); ?>
+					<?php echo $name; ?>
 				</div>
 			</div>
 			<div class="form-group">

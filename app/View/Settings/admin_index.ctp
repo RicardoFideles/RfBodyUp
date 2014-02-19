@@ -1,52 +1,29 @@
-<div class="settings index">
-	<h2><?php echo __('Settings'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('link_facebook'); ?></th>
-			<th><?php echo $this->Paginator->sort('link_twitter'); ?></th>
-			<th><?php echo $this->Paginator->sort('link_instagram'); ?></th>
-			<th><?php echo $this->Paginator->sort('link_pinterest'); ?></th>
-			<th><?php echo $this->Paginator->sort('link_googleplus'); ?></th>
-			<th><?php echo $this->Paginator->sort('email'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($settings as $setting): ?>
-	<tr>
-		<td><?php echo h($setting['Setting']['id']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['name']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['link_facebook']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['link_twitter']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['link_instagram']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['link_pinterest']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['link_googleplus']); ?>&nbsp;</td>
-		<td><?php echo h($setting['Setting']['email']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $setting['Setting']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $setting['Setting']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $setting['Setting']['id']), null, __('Are you sure you want to delete # %s?', $setting['Setting']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
+<div class="col-md-12">
+	<h2>
+		Configuraçoes do Sistema
+	</h2>    
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Configuraçoes</h3>
+  		</div>
+		<div class="table-responsive">
+			<table class="table">
+				<tr>
+						<th><?php echo $this->Paginator->sort('id'); ?></th>
+						<th><?php echo $this->Paginator->sort('name'); ?></th>
+						<th class="actions"><?php echo __('Ações'); ?></th>
+				</tr>
+				<?php foreach ($settings as $setting): ?>
+					<tr>
+						<td><?php echo h($setting['Setting']['id']); ?>&nbsp;</td>
+						<td><?php echo h($setting['Setting']['name']); ?>&nbsp;</td>
+						<td class="actions">
+							<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $setting['Setting']['id'])); ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</table>
+		</div>
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Setting'), array('action' => 'add')); ?></li>
-	</ul>
-</div>
+</div>	
+	
