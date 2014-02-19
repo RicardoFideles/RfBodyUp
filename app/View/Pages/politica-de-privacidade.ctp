@@ -3,6 +3,11 @@
 	$pagina = $this->requestAction(array('controller' => 'paginas', 'action' => 'getPagina', $slug));
 ?>
 
+<?php 
+	if (!empty($pagina)) {
+?>
+
+
 <div class="row rowFixHorizScroll marginTopD marginBotF bkgD">
 	<div class="container">
 		<div class="col-xs-12">
@@ -12,3 +17,7 @@
 		</div>
 	</div>
 </div>
+
+<?php
+	}
+?>

@@ -10,4 +10,10 @@
     s.parentNode.insertBefore(gcse, s);
   })();
 </script>
-<gcse:searchresults-only></gcse:searchresults-only>
+<div class="row rowFixHorizScroll marginTopD marginBotF bkgD">
+	<div class="container">
+		<div class="col-xs-12">
+		<gcse:searchresults-only></gcse:searchresults-only>
+		</div>
+	</div>
+</div>

@@ -1,5 +1,5 @@
 <?php
-	$slug = "stores";
+	$slug = "produtos";
 	$pagina = $this->requestAction(array('controller' => 'paginas', 'action' => 'getPagina', $slug));
 ?>
 
