@@ -10,7 +10,6 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('name_en'); ?></th>
 			<th><?php echo $this->Paginator->sort('slug'); ?></th>
-			<th><?php echo $this->Paginator->sort('qtd'); ?></th>
 			<th><?php echo $this->Paginator->sort('disponibilidade'); ?></th>
 			<th><?php echo $this->Paginator->sort('disponibilidade_en'); ?></th>
 			<th><?php echo $this->Paginator->sort('valor'); ?></th>
@@ -26,9 +25,7 @@
 	<?php foreach ($products as $product): ?>
 	<tr>
 		<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
-		</td>
+		<td><?php echo h($product['Product']['category_id']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($product['ParentProduct']['name'], array('controller' => 'products', 'action' => 'view', $product['ParentProduct']['id'])); ?>
 		</td>
@@ -37,7 +34,6 @@
 		<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['name_en']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['slug']); ?>&nbsp;</td>
-		<td><?php echo h($product['Product']['qtd']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['disponibilidade']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['disponibilidade_en']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['valor']); ?>&nbsp;</td>
@@ -74,16 +70,10 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Parent Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Photos'), array('controller' => 'photos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Photo'), array('controller' => 'photos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Colors'), array('controller' => 'colors', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Color'), array('controller' => 'colors', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sizes'), array('controller' => 'sizes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Size'), array('controller' => 'sizes', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Transactions'), array('controller' => 'transactions', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Transaction'), array('controller' => 'transactions', 'action' => 'add')); ?> </li>
 	</ul>

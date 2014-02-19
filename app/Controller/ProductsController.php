@@ -55,8 +55,12 @@ class ProductsController extends AppController {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
 			}
 		}
+		$categories = $this->Product->Category->find('list');
 		$parentProducts = $this->Product->ParentProduct->find('list');
-		$this->set(compact('parentProducts'));
+		$colors = $this->Product->Color->find('list');
+		$sizes = $this->Product->Size->find('list');
+		$transactions = $this->Product->Transaction->find('list');
+		$this->set(compact('categories', 'parentProducts', 'colors', 'sizes', 'transactions'));
 	}
 
 /**
@@ -81,8 +85,12 @@ class ProductsController extends AppController {
 			$options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
 			$this->request->data = $this->Product->find('first', $options);
 		}
+		$categories = $this->Product->Category->find('list');
 		$parentProducts = $this->Product->ParentProduct->find('list');
-		$this->set(compact('parentProducts'));
+		$colors = $this->Product->Color->find('list');
+		$sizes = $this->Product->Size->find('list');
+		$transactions = $this->Product->Transaction->find('list');
+		$this->set(compact('categories', 'parentProducts', 'colors', 'sizes', 'transactions'));
 	}
 
 /**
@@ -104,9 +112,4 @@ class ProductsController extends AppController {
 			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}
-	
-	public function lista ($id = null) {
-		
-	}
-}
+	}}
