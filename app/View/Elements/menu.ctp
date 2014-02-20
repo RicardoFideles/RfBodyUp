@@ -25,6 +25,7 @@
 						<li><?php echo $this->Html->link('Páginas', array('controller' => 'paginas', 'action' => 'index')) ?></li>
 						<li><?php echo $this->Html->link('Categorias', array('controller' => 'categories', 'action' => 'index')) ?></li>
 						<li><?php echo $this->Html->link('Cores', array('controller' => 'colors', 'action' => 'index')) ?></li>
+						<li><?php echo $this->Html->link('Tamanhos', array('controller' => 'sizes', 'action' => 'index')) ?></li>
 					</ul>
 				</li>
 				<li class="dropdown">
