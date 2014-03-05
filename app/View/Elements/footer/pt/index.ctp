@@ -17,6 +17,7 @@
 			<a href="<?php echo $this->Html->url('/sobre'); ?>" class="LkRodape">SOBRE</a><br />
 			<a href="<?php echo $this->Html->url('/produtos'); ?>" class="LkRodape">OS PRODUTOS</a><br />
 			<a href="<?php echo $this->Html->url('/lojas'); ?>" class="LkRodape">LOJAS</a><br />
+			<a href="<?php echo $this->Html->url('/contato'); ?>" class="LkRodape">CONTATO</a><br />
 			<br />
 			<p class="RodapeTitulo">Loja Online</p>
 			<?php foreach($categorias as $key => $categoria): ?>

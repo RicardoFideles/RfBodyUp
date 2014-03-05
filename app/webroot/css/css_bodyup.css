@@ -962,6 +962,14 @@ a.LkProdutosOrdenar:active {text-decoration: none;}
 }
 
 
+.socialplugins {
+	overflow: hidden;
+}
+
+#share_twitter, #share_facebook {
+	float: left;
+}
+
 
 
 

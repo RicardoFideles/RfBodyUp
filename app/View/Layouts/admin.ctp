@@ -23,8 +23,11 @@
   		
   		<div id="wrap">
   			<div class="container">
-  				<?php echo $this->Session->flash() ?>
-				<?php echo $this->fetch('content'); ?>
+  				<?php
+  					//echo $this->element('breadcrumbs');
+  					echo $this->Session->flash();
+					echo $this->fetch('content'); 
+				?>
   			</div>
   		</div>
 		<div id="footer">

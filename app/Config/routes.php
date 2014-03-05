@@ -61,10 +61,24 @@
             
     ));
 	
+	#rotas dinâmicas
+    Router::connect('/produto/:slug', array(
+        'controller' => 'products',
+        'action' => 'view'), array(
+            'pass' => array('slug'),        
+            'slug' => '[a-z0-9\-\.]+'
+    ));
+	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
     Router::connect('/admin/login', array('controller' => 'users', 'action' => 'login', 'admin' => true));
     Router::connect('/admin/logout', array('controller' => 'users', 'action' => 'logout', 'admin' => true));
+	
+	
+	# Rotas do painel de controle
+    Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'guest' => true));
+	Router::connect('/painel', array('controller' => 'users', 'action' => 'dashboard', 'guest' => true));
 	
 	
 /**

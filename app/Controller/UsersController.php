@@ -9,12 +9,6 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 	
 	
-	public function beforeFilter() {
-        parent::beforeFilter();
-        $this->Auth->allow('add');
-    }
-	
-	
 	 public function admin_login() {
         $this->layout = 'login';
 
@@ -35,6 +29,29 @@ class UsersController extends AppController {
             'title_for_layout' => 'Painel de Controle'
         ));
     }
+	 
+	 public function login() {
+
+       if ($this->request->is('post')) {
+       	
+            if ($this->Auth->login()) {
+                return $this->redirect('/');
+            } else {
+                $this->Session->setFlash('Dados incorretos ...');
+            }
+        }
+    }
+	 
+	 public function dashboard() {
+	 	
+	 }
+	 
+	 public function logout() {
+        $this->Session->delete($this->Auth->sessionKey);
+
+        $this->redirect($this->Auth->logout());
+    }
+	 
 	
 	/**
      * Dashboard do painel de controle
@@ -162,6 +179,92 @@ class UsersController extends AppController {
 			$this->redirect(array('action'=>'cakelog'));
 		}
 	}
+	
+	/**
+	 * It is used to create backup of log file
+	 *
+	 * @access public
+	 * @return array
+	 */
+	public function admin_cakelogbackup($filename = null) {
+		if (isset($_SERVER['HTTP_REFERER'])) {
+			if(!empty($filename)) {
+				$filepath= LOGS.$filename;
+				if(file_exists($filepath)) {
+					$pathinfo = pathinfo($filepath);
+					$newfile= $pathinfo['filename'].'_'.date('d-M-Y_H-i', time()).'.'.$pathinfo['extension'];
+					copy($filepath, LOGS.$newfile);
+					$this->Session->setFlash($filename.__(' has been copied to ').$newfile);
+				} else {
+					$this->Session->setFlash($filename.__(' file does not exist.'), 'default', array('class' => 'warning'));
+				}
+			} else {
+				$this->Session->setFlash(__('Missing Filename'), 'default', array('class' => 'warning'));
+			}
+		}
+		$this->redirect(array('action'=>'cakelog'));
+	}
+	/**
+	 * It is used to delete log file
+	 *
+	 * @access public
+	 * @return array
+	 */
+	public function admin_cakelogdelete($filename = null) {
+		if (isset($_SERVER['HTTP_REFERER'])) {
+			if(!empty($filename)) {
+				$filepath= LOGS.$filename;
+				if(file_exists($filepath)) {
+					if(unlink($filepath)) {
+						$this->Session->setFlash($filename.__(' has been deleted'));
+					} else {
+						$this->Session->setFlash($filename.__(' file could not be deleted'), 'default', array('class' => 'warning'));
+					}
+				} else {
+					$this->Session->setFlash($filename.__(' file does not exist.'), 'default', array('class' => 'warning'));
+				}
+			} else {
+				$this->Session->setFlash(__('Missing Filename'), 'default', array('class' => 'warning'));
+			}
+		}
+		$this->redirect(array('action'=>'cakelog'));
+	}
+	/**
+	 * It is used to empty log file
+	 *
+	 * @access public
+	 * @return array
+	 */
+	public function admin_cakelogempty($filename = null) {
+		if (isset($_SERVER['HTTP_REFERER'])) {
+			if(!empty($filename)) {
+				$filepath= LOGS.$filename;
+				$f = @fopen($filepath, "r+");
+				if ($f !== false) {
+					ftruncate($f, 0);
+					fclose($f);
+					$this->Session->setFlash($filename.__(' has been done empty'));
+				} else {
+					$this->Session->setFlash($filename.__(' file does not exist.'), 'default', array('class' => 'warning'));
+				}
+			} else {
+				$this->Session->setFlash(__('Missing Filename'), 'default', array('class' => 'warning'));
+			}
+		}
+		$this->redirect(array('action'=>'cakelog'));
+	}
+	
+	public function admin_addimage() {
+		
+        if ($this->request->is('post')) {
+            try {
+                $this->User->createWithAttachments($this->request->data);
+                $this->Session->setFlash(__('The message has been saved'));
+            } catch (Exception $e) {
+                $this->Session->setFlash($e->getMessage());
+            }
+        }
+    }
 
 
 }

@@ -22,7 +22,19 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputEmail3" class="col-sm-2 control-label">Nome em inglês</label>
+				<label for="inputEmail3" class="col-sm-2 control-label">Descrição</label>
+				<div class="col-sm-10">
+					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'id' => 'inputUser3', 'placeholder' => 'Descrição da categoria')); ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2 control-label">Descrição em inglês</label>
+				<div class="col-sm-10">
+					<?php echo $this->Form->input('descricao_en', array('class' => 'form-control', 'id' => 'inputUser3', 'placeholder' => 'Descrição da categoria em inglês')); ?>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputEmail3" class="col-sm-2 control-label">Status da categoria</label>
 				<div class="col-sm-10">
 					<?php echo $this->Form->input('status',  array('options' => array('ativa' => 'Ativa', 'desativada' => 'Desativada'), 'class' => 'form-control')); ?>
 				</div>

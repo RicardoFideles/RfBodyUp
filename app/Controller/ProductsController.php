@@ -20,7 +20,7 @@ class ProductsController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->Product->recursive = 0;
 		$this->set('products', $this->Paginator->paginate());
 	}
@@ -32,7 +32,7 @@ class ProductsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
+	public function admin_view($id = null) {
 		if (!$this->Product->exists($id)) {
 			throw new NotFoundException(__('Invalid product'));
 		}
@@ -45,7 +45,7 @@ class ProductsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Product->create();
 			if ($this->Product->save($this->request->data)) {
@@ -70,7 +70,7 @@ class ProductsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->Product->exists($id)) {
 			throw new NotFoundException(__('Invalid product'));
 		}
@@ -100,7 +100,7 @@ class ProductsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete($id = null) {
 		$this->Product->id = $id;
 		if (!$this->Product->exists()) {
 			throw new NotFoundException(__('Invalid product'));
@@ -112,4 +112,68 @@ class ProductsController extends AppController {
 			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+	
+	public function lista ($categoria = null, $page = null) {
+		
+		$this->loadModel('Category');
+		
+		$catTemp = $this->Category->findBySlug($categoria);
+		
+		if ($catTemp != null && !empty($catTemp) && ($catTemp['Category']['id'] != null)) {
+			
+			$idCategoria = $catTemp['Category']['id'];
+			
+			$disponibilidade = "Product.disponibilidade";
+			
+			$category = $catTemp;
+			
+			$idioma = Configure::read('lang');
+			
+			if ($idioma == "en") {
+				$this->paginate = array('limit' => 6 , 'page' => $page, 'conditions' =>  array('Product.category_id' => $idCategoria, "Product.disponibilidade_en" => "sim_"));
+			} else {
+				$this->paginate = array('limit' => 6 , 'page' => $page, 'conditions' =>  array('Product.category_id' => $idCategoria, "Product.disponibilidade" => "sim"));
+			}
+			
+		
+			$products = $this->paginate();
+		
+			$this -> set(compact('products', 'category'));
+			
+			
+		} else {
+			return $this->redirect('/');
+		}
+		
+	}
+
+	public function destaque () {
+		return $this->Product->find('all', array('conditions' => array('Product.destaque' => 'sim__'), 'limit' => 4));
+	}
+
+	public function view($id = null) {
+
+		preg_match('/(?:.*?)\-([0-9]+)\.html$/', $id, $matches);
+
+		$id = $matches[1];
+
+		$this -> Product -> id = $id;
+		if (!$this -> Product -> exists()) {
+			throw new NotFoundException(__('Produto inexistente'));
+		}
+		
+		$this->Product->recursive = 2;
+
+		$product = $this -> Product -> read(null, $id);
+		
+		
+		$this->loadModel('Category');
+		
+		$category = $this->Category->findById($product['Product']['category_id']);
+		
+		$this -> set(compact('product','category' ));
+	}
+
+
+}

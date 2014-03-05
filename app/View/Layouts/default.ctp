@@ -8,11 +8,11 @@
 	<link href="imagens/favicon_apple.png" rel="apple-touch-icon-precomposed"/>
 	
 	<!-- Bootstrap -->
-	<script src="js/jquery-1.10.2.min.js"></script>
 	<link href="<?php echo $this->Html->url('/css/bootstrap.min.css'); ?>" rel="stylesheet">
 	<link href="<?php echo $this->Html->url('/css/css_bodyup.css'); ?>" rel="stylesheet">
 	<link href="<?php echo $this->Html->url('/css/css_bodyup_print.css'); ?>" rel="stylesheet" media="print">
 	
+	<script type="text/javascript" src="<?php echo $this->Html->url('https://code.jquery.com/jquery.js'); ?>"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -27,20 +27,9 @@
 <body>
 	<?php echo $this->element('header/index'); ?>
 	
-  		<div id="wrap">
-  			<div class="container">
-  				
-  				<?php
-  				
-  					Configure::read('lang');
-					
-				?>
-				<?php echo $this->fetch('content'); ?>
-  			</div>
-  		</div>
+	<?php echo $this->fetch('content'); ?>
   		
-  		
-		<?php echo $this->element('footer/'. Configure::read('lang') .'/index'); ?>
+	<?php echo $this->element('footer/'. Configure::read('lang') .'/index'); ?>
 		
     <!-- Include all compiled plugins (below), or include individual files as needed -->
   </body>

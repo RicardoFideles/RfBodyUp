@@ -73,24 +73,48 @@ class AppController extends Controller {
 		
         $this->Auth->authError = 'Área restrita';
         $this->Auth->authorize = array('Controller');       
-        $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'display', 'home', 'admin' => false);
+        $this->Auth->logoutRedirect = array('controller' => 'pages', 'action' => 'display', 'home', 'admin' => false, 'guest' => false);
 
         $this->Auth->flash = array_merge($this->Auth->flash, array(
             'element' => 'alerts/inline',
             'params' => array('class' => 'error')
         ));
 		
+		$this->Auth->loginError = 'Nome de usuario ou senha não conferem!'; // Mensagem quando não se autenticar
+		
+		CakeLog::write('debug', 'entrei no if');
 		
 		 if ($this->isPrefix('admin')) {
-            $this->layout = 'admin';
+           
+		    $this->layout = 'admin';
         	
         	$this->Auth->authenticate = array('Form' => array(
             	'fields' => array('username' => 'username')
-        	));
+			));
 			
 		 } else {
 		 	
-		 	 $this->Auth->allow();
+		 	if (isset($this->request->params['guest']) && $this->request->params['guest']) {
+		 		CakeLog::write('debug', 'entrei no if');
+				
+				
+				$this->Auth->authenticate = array('Form' => array(
+	            	'fields' => array('username' => 'username')
+				));
+				
+				//$this->Auth->userModel = 'Customer';
+				//$this->Auth->loginAction = array('controller' => 'customers', 'action' => 'login', 'guest' => false);
+				//$this->Auth->fields = array('username' => 'username','password' => 'password');
+				//$this->Auth->authError = 'Área Restrita! Efetue login!'; // Mensagem ao entrar em area restrita
+				//$this->Auth->loginError = 'Nome de usuario ou senha não conferem!'; // Mensagem quando não se autenticar
+				//$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');
+				//$this->Auth->logoutRedirect = array('action' => 'login', 'controller' => 'customers');
+		 		
+				
+				
+			} else {
+	            $this->Auth->allow();
+			}
 		 }
 
         return parent::beforeFilter();
@@ -104,10 +128,17 @@ class AppController extends Controller {
      */
     public function isAuthorized($user = null) {
     	
-		if ($user['role'] === 'admin') {
-			return true;
-		}
-		
+		// Any registered user can access public functions
+        if (empty($this->request->params['admin'])) {
+            return true;
+        }
+
+        // Only admins can access admin functions
+        if (isset($this->request->params['admin'])) {
+            return (bool)($user['role'] === 'admin');
+        }
+
+        // Default deny
         return false;
     }
 	

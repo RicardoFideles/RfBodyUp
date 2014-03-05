@@ -1,320 +1,363 @@
-<div class="products view">
-<h2><?php echo __('Product'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Category'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Parent Product'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($product['ParentProduct']['name'], array('controller' => 'products', 'action' => 'view', $product['ParentProduct']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Lft'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['lft']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Rght'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['rght']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['name']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Name En'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['name_en']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Slug'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['slug']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Qtd'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['qtd']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Disponibilidade'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['disponibilidade']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Disponibilidade En'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['disponibilidade_en']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Valor'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['valor']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Valor En'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['valor_en']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Desconto'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['desconto']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Desconto En'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['desconto_en']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Descricao'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['descricao']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Descricao En'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['descricao_en']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Especificacao'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['especificacao']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Especificacao En'); ?></dt>
-		<dd>
-			<?php echo h($product['Product']['especificacao_en']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Product'), array('action' => 'edit', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Categories'), array('controller' => 'categories', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Category'), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Parent Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Photos'), array('controller' => 'photos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Photo'), array('controller' => 'photos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Colors'), array('controller' => 'colors', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Color'), array('controller' => 'colors', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Sizes'), array('controller' => 'sizes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Size'), array('controller' => 'sizes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Transactions'), array('controller' => 'transactions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Transaction'), array('controller' => 'transactions', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Photos'); ?></h3>
-	<?php if (!empty($product['Photo'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Product Id'); ?></th>
-		<th><?php echo __('Dir'); ?></th>
-		<th><?php echo __('Mimetype'); ?></th>
-		<th><?php echo __('Filesize'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Updated'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($product['Photo'] as $photo): ?>
-		<tr>
-			<td><?php echo $photo['id']; ?></td>
-			<td><?php echo $photo['name']; ?></td>
-			<td><?php echo $photo['product_id']; ?></td>
-			<td><?php echo $photo['dir']; ?></td>
-			<td><?php echo $photo['mimetype']; ?></td>
-			<td><?php echo $photo['filesize']; ?></td>
-			<td><?php echo $photo['created']; ?></td>
-			<td><?php echo $photo['updated']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'photos', 'action' => 'view', $photo['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'photos', 'action' => 'edit', $photo['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'photos', 'action' => 'delete', $photo['id']), null, __('Are you sure you want to delete # %s?', $photo['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Photo'), array('controller' => 'photos', 'action' => 'add')); ?> </li>
-		</ul>
+<div class="row rowFixHorizScroll marginTopD bkgD">
+	<div class="container">
+		<div class="col-xs-12">
+			<p class="InternaTitulo fonteDosis400">
+				<?php 
+					$idioma = Configure::read('lang');
+					
+					$slug = $category['Category']['slug'];
+					$link = array('controller' => 'products', 'action' => 'lista', 'slug'=> $slug);
+				?> 
+				
+				<a href="<?php echo $this->Html->url($link); ?>">
+					<?php
+						if ($idioma == "en") {
+					?>
+							<?php echo $category['Category']['name_en']; ?>
+					<?php	
+						} else {
+					?>
+						<?php echo $category['Category']['name']; ?>
+					<?php
+						}
+					?>
+				</a>
+			</p>
+			<br>
+		</div>
 	</div>
 </div>
-<div class="related">
-	<h3><?php echo __('Related Products'); ?></h3>
-	<?php if (!empty($product['ChildProduct'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Category Id'); ?></th>
-		<th><?php echo __('Parent Id'); ?></th>
-		<th><?php echo __('Lft'); ?></th>
-		<th><?php echo __('Rght'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Name En'); ?></th>
-		<th><?php echo __('Slug'); ?></th>
-		<th><?php echo __('Qtd'); ?></th>
-		<th><?php echo __('Disponibilidade'); ?></th>
-		<th><?php echo __('Disponibilidade En'); ?></th>
-		<th><?php echo __('Valor'); ?></th>
-		<th><?php echo __('Valor En'); ?></th>
-		<th><?php echo __('Desconto'); ?></th>
-		<th><?php echo __('Desconto En'); ?></th>
-		<th><?php echo __('Descricao'); ?></th>
-		<th><?php echo __('Descricao En'); ?></th>
-		<th><?php echo __('Especificacao'); ?></th>
-		<th><?php echo __('Especificacao En'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($product['ChildProduct'] as $childProduct): ?>
-		<tr>
-			<td><?php echo $childProduct['id']; ?></td>
-			<td><?php echo $childProduct['category_id']; ?></td>
-			<td><?php echo $childProduct['parent_id']; ?></td>
-			<td><?php echo $childProduct['lft']; ?></td>
-			<td><?php echo $childProduct['rght']; ?></td>
-			<td><?php echo $childProduct['name']; ?></td>
-			<td><?php echo $childProduct['name_en']; ?></td>
-			<td><?php echo $childProduct['slug']; ?></td>
-			<td><?php echo $childProduct['qtd']; ?></td>
-			<td><?php echo $childProduct['disponibilidade']; ?></td>
-			<td><?php echo $childProduct['disponibilidade_en']; ?></td>
-			<td><?php echo $childProduct['valor']; ?></td>
-			<td><?php echo $childProduct['valor_en']; ?></td>
-			<td><?php echo $childProduct['desconto']; ?></td>
-			<td><?php echo $childProduct['desconto_en']; ?></td>
-			<td><?php echo $childProduct['descricao']; ?></td>
-			<td><?php echo $childProduct['descricao_en']; ?></td>
-			<td><?php echo $childProduct['especificacao']; ?></td>
-			<td><?php echo $childProduct['especificacao_en']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'products', 'action' => 'view', $childProduct['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'products', 'action' => 'edit', $childProduct['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'products', 'action' => 'delete', $childProduct['id']), null, __('Are you sure you want to delete # %s?', $childProduct['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Child Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-		</ul>
+<?php echo $this->element('social/sdk'); ?>
+
+<div class="row rowFixHorizScroll marginTopA marginBotD">
+	<div class="container">
+		
+		<?php if (!empty($product['Photo'])): ?>
+			<?php 
+				$fotos = $product['Photo'];
+				$foto_principal = $fotos[0];
+			?>
+			
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				<img id="FotoColecao" src="<?php echo $this->Html->url($foto_principal['categoriaCapa']); ?>" data-zoom-image="<?php echo $this->Html->url($foto_principal['name']); ?>" class="img-responsive ProdImgBorder">
+				
+				<div class="row">
+					<div class="col-xs-12 MouseMsg text-right"></div>
+				</div>
+				<?php 
+					if (sizeof($fotos) > 1) {
+						unset($fotos[0]);
+						
+				?>
+					<?php foreach ($fotos as $foto): ?>
+						<div id="FotosGaleriaA" class="row marginTopB hidden-print">
+							<div class="col-xs-3">
+								<a href="#" data-image="<?php echo $this->Html->url($foto['categoriaCapa']); ?>" data-zoom-image="<?php echo $this->Html->url($foto['name']); ?>">
+									<img id="FotoColecao" src="<?php echo $this->Html->url($foto['categoriaCapa']); ?>" class="img-responsive ProdImgBorder">
+								</a>
+							</div>
+						</div>
+					<?php endforeach; ?>
+				
+				<?php
+					}
+				?>
+			</div>
+		<?php endif; ?>
+
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+			<div class="row ProdAberto">
+				<div class="col-lg-12 Titulo fonteDosis500">
+					<?php
+						if ($idioma == "en") {
+					?>
+							<?php echo $product['Product']['name_en']; ?>
+					<?php	
+						} else {
+					?>
+						<?php echo $product['Product']['name']; ?>
+					<?php
+						}
+					?>
+				</div>
+				
+				<div class="col-xs-6">
+					<p class="RefCode">REF: <?php echo $product['Product']['referencia']; ?></p>
+					<p class="Disponib">Disponibilidade: <span class="Neg">Indisponível</span></p>
+					<!--<p class="Disponib">Disponibilidade: <span class="Pos">Disponível</span></p>-->
+				</div>
+
+				<div class="col-xs-6 text-right socialplugins">
+					<div id="share_twitter">
+						<a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweet</a>
+					</div>
+					<div id="share_facebook">
+						<?php
+							$link = array('controller' => 'products', 'action' => 'view', 'slug' => $this->Link->makeLink($product['Product']['slug'], $product['Product']['id'])); 
+						?>
+						<div class="fb-like" data-href="<?php $this->Html->url($link); ?>" data-width="200" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+						
+					</div>
+					
+					<img src="<?php echo $this->Html->url('/imagens/iconEnviarMail.png'); ?>">
+				</div>
+
+				<div class="col-xs-12">
+					<?php
+						
+						$desconto = 0;
+						$valor = 0;
+						$tem_desconto = false;
+						if ($idioma == "en") {
+								
+							$desconto = $product['Product']['desconto_en'];
+							$valor_original = $product['Product']['valor_en'];
+							$valor_com_desconto = 0;
+							
+							if ($desconto > 0) {
+
+								$tem_desconto = true;
+								$valor_com_desconto =  $valor_original - $desconto;
+							}
+							$temp = "$";
+							$temp.= $valor_original;
+							$valor_original = $temp;
+							
+							$temp2 = "$";
+							$temp2.= $valor_com_desconto;
+							
+							
+						} else {
+							$desconto = $product['Product']['desconto'];
+							$valor_original = $product['Product']['valor'];
+							$valor_com_desconto = 0;
+							if ($desconto > 0) {
+									
+								$tem_desconto = true;
+								$valor_com_desconto =  $valor_original - $desconto;
+							}
+							
+							$temp = "R$";
+							$temp.= $valor_original;
+							$valor_original = $temp;
+							
+							$temp2 = "R$";
+							$temp2.= $valor_com_desconto;
+						}
+						
+						
+						
+						
+						
+					?>
+					
+					<?php
+						if ($idioma == "en") {
+					?>
+						<p class="SubTitulo fonteDosis500">PRICE</p>
+					<?php	
+						} else {
+					?>
+					<p class="SubTitulo fonteDosis500">VALOR</p>
+					<?php
+						}
+					?>
+					
+					
+					<?php 
+						if ($tem_desconto) {
+					?>
+					
+					<span class="Valor">
+						<?php echo $valor_com_desconto; ?>
+					</span>
+					<span class="ValorOriginal">
+						<?php echo $valor_original; ?>
+					</span>
+					
+					<?php
+						} else {
+					?>
+					<span class="Valor">
+						<?php echo $valor_original; ?>
+					</span>
+					<?php
+						}
+					?>
+					
+				</div>
+
+				<div class="col-xs-12">
+					<?php
+						if ($idioma == "en") {
+					?>
+						<p class="SubTitulo fonteDosis500">DESCRIPTION</p>
+							<?php echo $product['Product']['descricao_en']; ?>
+					<?php	
+						} else {
+					?>
+						<p class="SubTitulo fonteDosis500">DESCRIÇÃO</p>
+						<?php echo $product['Product']['descricao']; ?>
+					<?php
+						}
+					?>
+					
+					
+					<?php
+						if ($idioma == "en") {
+					?>
+						<p class="SubTitulo fonteDosis500">SPECIFICATIONS</p>
+							<?php echo $product['Product']['especificacao_en']; ?>
+					<?php	
+						} else {
+					?>
+						<p class="SubTitulo fonteDosis500">ESPECIFICAÇÕES</p>
+						<?php echo $product['Product']['especificacao']; ?>
+					<?php
+						}
+					?>
+
+				</div>
+
+				<div class="col-lg-5 col-md-5 col-xs-12">
+					<p class="SubTitulo fonteDosis500">TAMANHO</p>
+					<select class="form-control">
+						<option>Selecione um tamanho</option>
+						<?php if (!empty($product['Size'])): ?>
+							<?php foreach ($product['Size'] as $size): ?>
+								<?php
+									if ($idioma == "en") {
+								?>
+										<option value="<?php echo $size['id'];?>"><?php echo $size['name_en'];?></option>
+								<?php	
+									} else {
+								?>
+									<option value="<?php echo $size['id'];?>"><?php echo $size['name'];?></option>
+								<?php
+									}
+								?>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</select>
+				</div>
+
+				<div class="col-lg-5 col-md-5 col-xs-12">
+					<p class="SubTitulo fonteDosis500">COR</p>
+					<select class="form-control">
+						<option>Selecione uma cor</option>
+						<?php if (!empty($product['Color'])): ?>
+							<?php foreach ($product['Color'] as $color): ?>
+								
+								<?php
+									if ($idioma == "en") {
+								?>
+										<option value="<?php echo $color['id'];?>"><?php echo $color['name_en']; ?></option>
+								<?php	
+									} else {
+								?>
+									<option value="<?php echo $color['id'];?>"><?php echo $color['name']; ?></option>
+								<?php
+									}
+								?>
+							<?php endforeach; ?>
+						<?php endif; ?>
+
+					</select>
+				</div>
+
+				<div class="col-lg-2 col-md-2 col-xs-12">
+					<p class="SubTitulo fonteDosis500">QUANTIDADE</p>
+					<div class="row">
+						<div class="col-sm-12 col-xs-12">
+							<input type="text" class="form-control">
+						</div>
+					</div> 
+				</div>
+ 
+				<div class="col-lg-6 col-md-6 col-xs-12">                                    
+					<p class="SubTitulo fonteDosis500">GUIA DE TAMANHOS</p>
+
+					<div class="GuiaTamanhos">
+						<table class="table">
+							<tbody>
+							<tr class="active">
+							<td class="Dest">INCH</td>
+							<td class="Dest">S</td>
+							<td class="Dest">M</td>
+							<td class="Dest">L</td>
+							</tr>
+							<tr>
+							<td class="Dest">Busto/Bust</td>
+							<td>30-31</td>
+							<td>32-34</td>
+							<td>35.5-38</td>
+							</tr>
+							<tr>
+							<td class="Dest">Cintura/Waist</td>
+							<td>21.5-23</td>
+							<td>24.5-26</td>
+							<td>27.5-29</td>
+							</tr>
+							<tr>
+							<td class="Dest">Quadril/Low Hip</td>
+							<td>32-33.5</td>
+							<td>35.5-38</td>
+							<td>38.5-40</td>
+							</tr>
+							<tr class="active">
+							<td class="Dest">CM</td>
+							<td class="Dest">P</td>
+							<td class="Dest">M</td>
+							<td class="Dest">G</td>
+							</tr>
+							<tr>
+							<td class="Dest">Busto/Bust</td>
+							<td>76-79</td>
+							<td>82-86</td>
+							<td>90-96</td>
+							</tr>
+							<tr>
+							<td class="Dest">Cintura/Waist</td>
+							<td>55-58</td>
+							<td>62-66</td>
+							<td>70-74</td>
+							</tr>
+							<tr>
+							<td class="Dest">Quadril/Low Hip</td>
+							<td>82-85</td>
+							<td>90-94</td>
+							<td>98-102</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="col-lg-5 col-lg-offset-1 col-md-6 col-xs-12">
+					<button type="submit" class="btn btn-ButtonLisDesejos">Adicionar ao Carrinho de Compras</button>
+					<br><br>
+					<button type="submit" class="btn btn-ButtonCarrinhoComp">Adicionar à Lista de Desejos</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-<div class="related">
-	<h3><?php echo __('Related Colors'); ?></h3>
-	<?php if (!empty($product['Color'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th><?php echo __('Name En'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($product['Color'] as $color): ?>
-		<tr>
-			<td><?php echo $color['id']; ?></td>
-			<td><?php echo $color['name']; ?></td>
-			<td><?php echo $color['name_en']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'colors', 'action' => 'view', $color['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'colors', 'action' => 'edit', $color['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'colors', 'action' => 'delete', $color['id']), null, __('Are you sure you want to delete # %s?', $color['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Color'), array('controller' => 'colors', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Sizes'); ?></h3>
-	<?php if (!empty($product['Size'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Name'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($product['Size'] as $size): ?>
-		<tr>
-			<td><?php echo $size['id']; ?></td>
-			<td><?php echo $size['name']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'sizes', 'action' => 'view', $size['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'sizes', 'action' => 'edit', $size['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'sizes', 'action' => 'delete', $size['id']), null, __('Are you sure you want to delete # %s?', $size['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<!--ZOOM-->
+<script src='<?php echo $this->Html->url('/js/zoom/jquery-1.8.3.min.js'); ?>'></script>
+<script src='<?php echo $this->Html->url('/js/zoom/jquery.elevatezoom.js'); ?>'></script>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Size'), array('controller' => 'sizes', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Transactions'); ?></h3>
-	<?php if (!empty($product['Transaction'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Customer Id'); ?></th>
-		<th><?php echo __('Status'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Updated'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($product['Transaction'] as $transaction): ?>
-		<tr>
-			<td><?php echo $transaction['id']; ?></td>
-			<td><?php echo $transaction['customer_id']; ?></td>
-			<td><?php echo $transaction['status']; ?></td>
-			<td><?php echo $transaction['created']; ?></td>
-			<td><?php echo $transaction['updated']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'transactions', 'action' => 'view', $transaction['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'transactions', 'action' => 'edit', $transaction['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'transactions', 'action' => 'delete', $transaction['id']), null, __('Are you sure you want to delete # %s?', $transaction['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
+<script>   
+//initiate the plugin and pass the id of the div containing gallery images
+//$("#img_01").elevateZoom({gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: 'active', imageCrossfade: true, loadingIcon: 'http://www.elevateweb.co.uk/spinner.gif'}); 
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Transaction'), array('controller' => 'transactions', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
+$("#FotoColecao").elevateZoom({gallery:'FotosGaleriaA', cursor: '', galleryActiveClass: 'active', easing : true, zoomType: "inner", zoomWindowFadeIn: 400, zoomWindowFadeOut: 400}); 
+
+//pass the images to Fancybox
+$("#FotoColecao").bind("click", function(e) {  
+  var ez =   $('#FotoColecao').data('elevateZoom');	
+	$.fancybox(ez.getGalleryList());
+  return false;
+});   
+</script>

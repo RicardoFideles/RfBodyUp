@@ -1,3 +1,8 @@
+<?php
+	$this->Html->addCrumb('Users', '/users/');
+	$this->Html->addCrumb('CakeLog', '/users/cakelog');
+?>
+
 <div class="um-panel">
 	<div class="um-panel-header">
 		<span class="um-panel-title">
