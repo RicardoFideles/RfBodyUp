@@ -108,9 +108,11 @@ class SettingsController extends AppController {
 		
 		if($lg=='en') {
 			$this->Session->write('Config.language', 'eng');
+			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home_en'));
 		}
 		if($lg=='pt') {
 			$this->Session->write('Config.language', 'pt-br');
+			$this->redirect(array('controller' => 'pages', 'action' => 'display', 'home'));
 		}
 		
 		$this->redirect('/');

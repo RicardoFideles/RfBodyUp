@@ -1,3 +1,8 @@
+<?php   $this->set(array(
+	    'title_for_layout' => $category['Category']['name']
+	));
+?>
+
 <div class="row rowFixHorizScroll marginTopD marginBotC bkgD hidden-print">
 	<div class="container">
 		<div class="col-xs-12">
@@ -36,10 +41,16 @@
 		</div>
 		
 		<div class="col-sm-2 col-xs-12">
-			<p class="fonteDosis500 text-right ProdutosOrdenar">EXIBIR:  
-				<a href="#" class="LkProdutosOrdenar">8</a>  |  
-				<a href="#" class="LkProdutosOrdenar">16</a>  |  
-				<a href="#" class="LkProdutosOrdenar">TODOS</a>
+			<p class="fonteDosis500 text-right ProdutosOrdenar">EXIBIR: 
+				<?php
+					$link_1 = array('controller'=>'products', 'action'=> 'lista', 'slug' => $slug, 'page' => 1);
+					$link_2 = array('controller'=>'products', 'action'=> 'lista', 'slug' => $slug, 'page' => 1, 'quantidade' => 2);
+					$link_3 = array('controller'=>'products', 'action'=> 'lista', 'slug' => $slug, 'page' => 1, 'quantidade' => 3);
+					
+				?>
+				<a href="<?php echo $this->Html->url($link_1); ?>" class="LkProdutosOrdenar">8</a>  |  
+				<a href="<?php echo $this->Html->url($link_2); ?>" class="LkProdutosOrdenar">16</a>  |  
+				<a href="<?php echo $this->Html->url($link_3); ?>" class="LkProdutosOrdenar">TODOS</a>
 			</p>
 		</div>
 	</div>
@@ -118,10 +129,31 @@
 </div>
 
 <div class="row rowFixHorizScroll marginTopA marginBotD">
-      <div class="container">
-            <div class="col-xs-12">
-            <p class="fonteDosis200 text-center"><a href="#" class="LkProdutosPaginacao">ANTERIOR</a>  |  <a href="#" class="LkProdutosPaginacao">2</a>  |  <a href="#" class="LkProdutosPaginacao">3</a>  |  <a href="#" class="LkProdutosPaginacao">4</a>  |  <a href="#" class="LkProdutosPaginacao">5</a>  |  <a href="#" class="LkProdutosPaginacao">6</a>  |  <a href="#" class="LkProdutosPaginacao">PRÓXIMA</a></p>
-            <br>
-            </div>
-    </div>
+	<div class="container">
+		<div class="col-xs-12">
+			<ul class="paginacao fonteDosis200 text-center">
+				<?php
+					$this->Paginator->options(array(
+					    'url' => array(
+					        'controller' => 'products', 'action' => 'lista', 'slug' => $slug,
+					    )
+					));
+				?>
+				
+				<?php
+		            echo $this->Paginator->prev('ANTERIOR ', array('tag' => 'li' , 'class'=> 'previous'), null, array('class' => 'disable', 'tag' => 'li'));
+				?> 
+				| 
+				<?php
+		            echo $this->Paginator->numbers(array('separator' => ' | ', 'tag' => 'li'));
+		            $this->Paginator->current(null, null, null);
+				?> 
+				| 
+				<?php
+		            echo $this->Paginator->next(' PRÓXIMA', array('tag' => 'li', 'class'=> 'next'), null, array('class' => 'disable','tag' => 'li'));
+		        ?>
+			</ul>
+			<br>
+		</div>
+	</div>
 </div>

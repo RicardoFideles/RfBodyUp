@@ -1,4 +1,3 @@
-<div class="col-md-12">
 	<h2>
 		Lista de Produtos
 	</h2>    
@@ -9,7 +8,7 @@
   		<div class="panel-body">
 	      <button type="button" class="btn btn-default"><a href="<?php
 				$link = array('controller' => 'Products', 'action' => 'add');
-				echo $this->Html->url($link); ?>" class="btn btn_book">Adicionar</a></button>
+				echo $this->Html->url($link); ?>" class="btn btn_book">Novo Produto</a></button>
 		</div>
 		
 		<div class="table-responsive">
@@ -17,6 +16,7 @@
 				<tr>
 						<th><?php echo $this->Paginator->sort('id'); ?></th>
 						<th><?php echo $this->Paginator->sort('Nome'); ?></th>
+						<th><?php echo $this->Paginator->sort('Categoria'); ?></th>
 						<th><?php echo $this->Paginator->sort('Estoque'); ?></th>
 						<th><?php echo $this->Paginator->sort('Disponível no Brasil'); ?></th>
 						<th><?php echo $this->Paginator->sort('Disponível no Exterior'); ?></th>
@@ -26,6 +26,7 @@
 					<tr>
 						<td><?php echo h($product['Product']['id']); ?>&nbsp;</td>
 						<td><?php echo h($product['Product']['name']); ?>&nbsp;</td>
+						<td><?php echo h($product['Category']['name']); ?>&nbsp;</td>
 						<td><?php echo h($product['Product']['qtd']); ?>&nbsp;</td>
 						<td><?php echo h($product['Product']['disponibilidade']); ?>&nbsp;</td>
 						<td><?php echo h($product['Product']['disponibilidade_en']); ?>&nbsp;</td>
@@ -52,5 +53,4 @@
 		</div>
 	
 	</div>
-</div>	
 	

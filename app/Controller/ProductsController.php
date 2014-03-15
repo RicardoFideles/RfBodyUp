@@ -114,7 +114,7 @@ class ProductsController extends AppController {
 		return $this->redirect(array('action' => 'index'));
 	}
 	
-	public function lista ($categoria = null, $page = null) {
+	public function lista ($categoria = null, $page = null, $quantidade = null) {
 		
 		$this->loadModel('Category');
 		
@@ -130,10 +130,27 @@ class ProductsController extends AppController {
 			
 			$idioma = Configure::read('lang');
 			
-			if ($idioma == "en") {
-				$this->paginate = array('limit' => 6 , 'page' => $page, 'conditions' =>  array('Product.category_id' => $idCategoria, "Product.disponibilidade_en" => "sim_"));
+			if ($quantidade == null) {
+				$quantidade = 8;
 			} else {
-				$this->paginate = array('limit' => 6 , 'page' => $page, 'conditions' =>  array('Product.category_id' => $idCategoria, "Product.disponibilidade" => "sim"));
+				if ($quantidade == 2) {
+					$quantidade = 16;
+				} else {
+					if ($quantidade == 3) {
+						$quantidade = 1000;
+					} else {
+						$quantidade = 8;
+					}
+				}
+			}
+			
+			
+			
+			if ($idioma == "en") {
+					
+				$this->paginate = array('limit' => $quantidade , 'page' => $page, 'conditions' =>  array('Product.category_id' => $idCategoria, "Product.disponibilidade_en" => "sim_"));
+			} else {
+				$this->paginate = array('limit' => $quantidade , 'page' => $page, 'conditions' =>  array('Product.category_id' => $idCategoria, "Product.disponibilidade" => "sim"));
 			}
 			
 		
@@ -173,6 +190,10 @@ class ProductsController extends AppController {
 		$category = $this->Category->findById($product['Product']['category_id']);
 		
 		$this -> set(compact('product','category' ));
+	}
+	
+	public function destaque_home () {
+		return $this->Product->find('all', array('conditions' => array('Product.destaque' => 'sim__'), 'limit' => 4));
 	}
 
 

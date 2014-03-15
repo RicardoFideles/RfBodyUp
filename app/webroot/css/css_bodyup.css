@@ -970,6 +970,15 @@ a.LkProdutosOrdenar:active {text-decoration: none;}
 	float: left;
 }
 
+.paginacao li {
+	display: inline;
+}
+
+.paginacao li a { font-size:10pt; color: #333333; padding-left:2px; padding-right:2px; }
+.paginacao li a:link {text-decoration: none;}
+.paginacao li a:visited {text-decoration: none;}
+.paginacao li a:hover {text-decoration:none; color:#FFF; background-color:#efab55; }
+.paginacao li a:active {text-decoration: none;}
 
 
 

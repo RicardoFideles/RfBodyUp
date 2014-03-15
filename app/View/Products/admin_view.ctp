@@ -2,7 +2,11 @@
 	$this->Html->addCrumb('Produtos', '/produtcs/');
 	$this->Html->addCrumb($product['Product']['name'], '/products/view/'+$product['Product']['id']);
 ?>
-
+	<div class="panel-body">
+	      <button type="button" class="btn btn-default"><a href="<?php
+				$link = array('controller' => 'Products', 'action' => 'index');
+				echo $this->Html->url($link); ?>" class="btn btn_book">voltar</a></button>
+		</div>
 	<h2>
 		<?php echo h($product['Product']['name']); ?>
 	</h2>

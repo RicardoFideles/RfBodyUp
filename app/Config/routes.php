@@ -25,6 +25,7 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/en', array('controller' => 'pages', 'action' => 'display', 'home_en'));
 	
 	
 	Router::connect('/sobre', array('controller' => 'pages', 'action' => 'display', 'sobre'));
@@ -50,6 +51,9 @@
 	
 	
 	Router::connect('/busca', array('controller' => 'pages', 'action' => 'display', 'busca'));
+	Router::connect('/carrinho', array('controller' => 'pages', 'action' => 'display', 'carrinho'));
+	
+	Router::connect('/calculaFrete', array('controller' => 'correios', 'action' => 'frete'));
 	
 	
 	
@@ -61,6 +65,24 @@
             
     ));
 	
+	Router::connect('/categoria/:slug/:page', array(
+        'controller' => 'products',
+        'action' => 'lista'), array(
+            'pass' => array('slug','page'),        
+            'slug' => '[a-z\-\.]+',
+            'page' => '[0-9.]+'
+    ));
+	
+	Router::connect('/categoria/:slug/:page/:quantidade', array(
+        'controller' => 'products',
+        'action' => 'lista'), array(
+            'pass' => array('slug','page','quantidade'),        
+            'slug' => '[a-z\-\.]+',
+            'page' => '[0-9.]+',
+            'quantidade' => '[0-9.]+'
+    ));
+	
+	
 	#rotas dinâmicas
     Router::connect('/produto/:slug', array(
         'controller' => 'products',
@@ -68,6 +90,9 @@
             'pass' => array('slug'),        
             'slug' => '[a-z0-9\-\.]+'
     ));
+	
+	
+	
 	
 	# Rotas do painel de controle
     Router::connect('/admin', array('controller' => 'users', 'action' => 'dashboard', 'admin' => true));
@@ -79,6 +104,9 @@
     Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout', 'guest' => true));
 	Router::connect('/painel', array('controller' => 'users', 'action' => 'dashboard', 'guest' => true));
+	
+	#registra compra
+	Router::connect('/registrar', array('controller' => 'transactions', 'action' => 'registrar'));
 	
 	
 /**

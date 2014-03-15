@@ -30,10 +30,10 @@
 					<?php foreach($categorias as $key => $categoria): ?>
 						<?php 
 							$slug = $categoria['Category']['slug'];
-							$link = array('controller' => 'categories', 'action' => 'view', 'slug'=> $slug); 
+							$link = array('controller' => 'products', 'action' => 'lista', 'slug'=> $slug); 
 						?>
 						
-						<li><a href="#"><?php echo $categoria['Category']['name']; ?></a></li>
+						<li><a href="<?php echo $this->Html->url($link); ?>"><?php echo $categoria['Category']['name']; ?></a></li>
 					<?php endforeach; ?>
 				</ul>
 			</div>

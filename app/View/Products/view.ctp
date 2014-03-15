@@ -1,3 +1,7 @@
+<?php   $this->set(array(
+	    'title_for_layout' => $category['Category']['name'] . ' ' . $product['Product']['name']
+	));
+?>
 <div class="row rowFixHorizScroll marginTopD bkgD">
 	<div class="container">
 		<div class="col-xs-12">
@@ -45,24 +49,15 @@
 				<div class="row">
 					<div class="col-xs-12 MouseMsg text-right"></div>
 				</div>
-				<?php 
-					if (sizeof($fotos) > 1) {
-						unset($fotos[0]);
-						
-				?>
+				<div id="FotosGaleriaA" class="row marginTopB hidden-print">
 					<?php foreach ($fotos as $foto): ?>
-						<div id="FotosGaleriaA" class="row marginTopB hidden-print">
 							<div class="col-xs-3">
 								<a href="#" data-image="<?php echo $this->Html->url($foto['categoriaCapa']); ?>" data-zoom-image="<?php echo $this->Html->url($foto['name']); ?>">
 									<img id="FotoColecao" src="<?php echo $this->Html->url($foto['categoriaCapa']); ?>" class="img-responsive ProdImgBorder">
 								</a>
 							</div>
-						</div>
 					<?php endforeach; ?>
-				
-				<?php
-					}
-				?>
+				</div>
 			</div>
 		<?php endif; ?>
 
@@ -96,7 +91,7 @@
 						<?php
 							$link = array('controller' => 'products', 'action' => 'view', 'slug' => $this->Link->makeLink($product['Product']['slug'], $product['Product']['id'])); 
 						?>
-						<div class="fb-like" data-href="<?php $this->Html->url($link); ?>" data-width="200" data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+						<div class="fb-share-button" data-href="<?php $this->Html->url($link); ?>" data-width="200" data-type="button_count"></div>
 						
 					</div>
 					

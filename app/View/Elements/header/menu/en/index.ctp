@@ -25,7 +25,7 @@
 		<div class="col-xs-12 text-left visible-print">
 			<img src="<?php echo $this->Html->url('/imagens/LogoBodyUpTopo2.png'); ?> " class="LogoMobile" />
 			<br />
-			<?php echo $this->Html->url('/'); ?>
+			<?php echo $this->Html->url('/en/'); ?>
 		</div>
 	</div>
 </div>
